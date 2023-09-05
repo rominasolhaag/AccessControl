@@ -2,7 +2,7 @@
 
 ### Segundo Cuatrimestre
 
-#### Tablero de trabajo "KANBA": [aqui](https://github.com/rominasolhaag/AccessControl.git)
+#### Tablero de trabajo "KANBA": [aqui](https://github.com/users/rominasolhaag/projects/4/views/1?layout=board)
 
 #### Wiki del proyecto "ACCESS CONTROL SECURE": [aqui](https://github.com/rominasolhaag/AccessControl/wiki)
 
