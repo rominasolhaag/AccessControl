@@ -1,0 +1,64 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(255, 255, 255);
+
+
+} 
+header{
+    display: flex;
+    flex-direction: column;
+}
+.container-fluid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(46, 92, 93);
+    height: 150px;
+    align-items: center;
+}
+
+#login{
+    margin-right: 30px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(73, 132, 113);
+    height: 50px;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    
+
+}
+#menu{
+    text-decoration: none;
+    color: black;
+
+}
+main{
+    padding-left: 20px;
+
+}
+.titulo{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+footer{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;    
+}
