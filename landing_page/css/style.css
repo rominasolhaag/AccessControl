@@ -8,13 +8,20 @@ body{
 header{
     display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
 }
 .container-fluid{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: rgb(46, 92, 93);
-    height: 150px;
+    height: 120px;
     align-items: center;
 }
 
@@ -32,9 +39,8 @@ header{
     height: 50px;
     align-items: center;
     font-family: 'Raleway', sans-serif;
-    
-
 }
+
 #menu{
     text-decoration: none;
     color: black;
@@ -42,11 +48,27 @@ header{
 }
 main{
     padding-left: 20px;
+    margin-top: 210px;
 
 }
 .titulo{
     text-align: center;
 }
+#card{
+    margin-left: 25%;
+    
+}
+h2{
+    margin-left: 18%;
+}
+button{
+    border: none;
+    background-color: transparent;
+}
+#boton{
+    text-decoration: none;
+    color: black;
+}
 
 
 
@@ -54,9 +76,7 @@ main{
 
 
 
-
-
-footer{
+.footer{
     padding-left: 20px;
     display: flex;
     flex-direction: row;
