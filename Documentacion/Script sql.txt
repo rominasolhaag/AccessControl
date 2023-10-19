@@ -1,0 +1,117 @@
+create database CONTROL;
+use CONTROL;
+
+create table ROL(
+id_rol int auto_increment,
+descripcion varchar (50) not null,
+primary key (id_rol)
+);
+
+create table AREA (
+id_area int auto_increment,
+area varchar (50) not null,
+primary key (id_area)
+);
+
+create table GENERO (
+id_genero int auto_increment,
+genero varchar (50),
+primary key (id_genero)
+);
+
+create table TIPO_DNI(
+id_tipo_dni int auto_increment,
+tipo_dni varchar(30) not null,
+primary key (id_tipo_dni)
+);
+
+create table TIPO_RETRASO (
+ id_tipo_retraso int not null,
+ detalle varcharacter(250),
+ primary key (id_tipo_retraso)
+ );
+
+create table TIPO_LICENCIAS (
+id_licencias int not null,
+descripcion varchar(250),
+primary key (id_licencias)
+);
+
+create table HORARIOS (
+id_horarios int not null auto_increment,
+turno varchar (50),
+primary key (id_horarios)
+);
+
+create table PRESENTISMO (
+id_presentismo int not null auto_increment,
+asistencia varchar (10),
+horario_ingreso datetime not null,
+horario_egreso datetime not null,
+primary key (id_presentismo)
+);
+
+create table USUARIOS (
+tipo_dni int,
+nro_dni int,
+nombre varchar(50),
+apellido varchar (50),
+direccion varchar (250),
+telefono int not null,
+telefono_emergencia int,
+email varchar(50),
+area_laboral int,
+genero int,
+rol_usuario int,
+primary key (nro_dni),
+foreign key (area_laboral) references AREA (id_area),
+foreign key (tipo_dni) references TIPO_DNI (id_tipo_dni),
+foreign key (genero) references GENERO (id_genero),
+foreign key (rol_usuario) references ROL (id_rol)
+);
+
+create table USUARIOS_LICENCIAS ( 
+id_licencias int not null,
+tipo_licencia int,
+desde date not null,
+hasta date not null,
+autorizado varchar (100),
+usuario int,
+primary key (id_licencias),
+foreign key (usuario) references USUARIOS (nro_dni),
+foreign key (tipo_licencia) references TIPO_LICENCIAS (id_licencias)
+);
+
+create table HORARIO_ASIGNADO (
+id_horario int not null,
+usuario int,
+id_presentismo int,
+horario int,
+primary key (id_horario),
+foreign key (usuario) references USUARIOS (nro_dni),
+foreign key (horario) references HORARIOS (id_horarios),
+foreign key (id_presentismo) references PRESENTISMO (id_presentismo)
+);
+
+create table HORAS_EXTRAS (
+id_extras int not null,
+usuario int ,
+fecha date not null,
+hora_inicio datetime not null,
+hora_cierre datetime not null,
+descripcion varcharacter (250),
+primary key (id_extras),
+foreign key (usuario) references USUARIOS (nro_dni)  
+);
+
+ create table RETRASO (
+ id_retraso int not null,
+ usuario int,
+ tipo_retraso int,
+ minutos int,
+ observaciones varchar (250),
+ fecha date not null,
+ primary key (id_retraso),
+ foreign key (usuario) references USUARIOS (nro_dni),
+ foreign key (tipo_retraso) References TIPO_RETRASO (id_tipo_retraso)
+);
