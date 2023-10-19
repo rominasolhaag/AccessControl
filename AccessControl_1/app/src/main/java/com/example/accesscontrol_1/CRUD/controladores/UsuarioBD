@@ -1,0 +1,159 @@
+import android.content.Context;
+
+import com.example.CRUD.modelos.Usuario;
+import java.util.ArrayList;
+import java.util.list;
+
+public class UsuarioBD extends SQLiteOpenHelper implements IUsuarioBD{ //implementes todos los metodos de sql
+    Context contexto;
+    private List<Usuario> usuarioslist= new ArrayList();
+// creamos el constructor
+    public UsuarioBD(@Nullable Context context,@Nullable String name, 
+                    @Nullable SQLiteDatabase.CursorFactory factory, int version){
+                        super(context,name,factory,version);
+                        this.contexto = context;// elementos que necesita el cosntrucctor de sql al inicio
+    }
+    @Override //primera version de la base de datos, se ejecuta una sola vez
+    public void onCreate(SQLiteDatabase aqLiteDatabase) {
+        String sqlCreate = "CREATE TABLE Usuarios (" + 
+                            "nro_dni INTEGER PRIMARY KEY AUTOINCEMENT,"+
+                            "nombre TEXT,"+
+                            "apellido TEXT," +
+                            "direccion TEXT,"+
+                            "telefono INTERGER,"+
+                            "telefono_emergencia INTERGER,"+
+                            "email TEXT,"+
+                            "area_laboral INTERGER,"+//FORENG KEY
+                            "id_genero INTERGER,"+ 
+                            "id_rol INTERGER," +
+                            "id_doc INTERGER)";
+                            "FOREIGN KEY (area_laboral) REFERENCES Area(area_laboral)," +
+                            "FOREIGN KEY (id_genero) REFERENCES Genero(id_genero)," +
+                            "FOREIGN KEY (id_rol) REFERENCES Rol(id_rol)," +
+                            "FOREIGN KEY (tipo_dni) REFERENCES Tipo_doc(id_doc))"
+
+        sqLiteDatabase.execSQL(sql);
+        //String insert="INSERT INTO Usuario VALUES (null, + y demas datos que debamos cargar)"
+        // sqLiteDatabase.execSQL(insert);
+    } //para cada tabla que tengamos, hacemos esto
+
+
+    @Override //metodo para hacer modificaciones a la base de datos
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+}
+
+    @Override //traiga un elemento desde el id, consultar
+    public Usuario elemento(int nro_dni){
+        SQLiteDatabase database= getReadabaleDatabase();
+        Cursor cursor=database.rawQuery("SELECT * FROM Usuarios WHERE nro_dni='"+nro_dni+"", null);   //recibe la consulta
+        try{    
+            if (cursor.moveToNext())
+                return extraerUsuario(cursor);
+            else
+                return null;
+        }catch (Exception e){Log.d ("TAG","error elemento nro_dni UsuarioBD" + e.getMessage());
+            throw e;
+        }finally {
+            if (cursor !=null) cursor.close();
+        }  // dice si hubiera error
+}
+    private Usuario extraerUsuario(Cursor cursor){
+        Usuario usuario = new Usuario();
+        usuario.setNro_dni(cursor.getInt(0));
+        usuario.setNombre(cursor.getString(1));
+        usuario.setApellido(cursor.getString(2));
+        usuario.setDireccion(cursor.getString(3));
+        usuario.setTelefono(cursor.getInt(4));
+        usuario.setTelefono_emergencia(cursor.getInt(5));
+        usuario.setEmail(cursor.getString(6));
+        usuario.setArea_laboral(cursor.getInt(7));
+        usuario.setId_genero(cursor.getInt(8));
+        usuario.setId_rol(cursor.getInt(9));
+        usuario.setId_doc(cursor.getInt(10));
+        return usuario;//devuelve objeto usuario
+    }
+    @Override
+    public Usuario elemento(String nombre){ 
+        SQLiteDatabase database= getReadabaleDatabase();
+        Cursor cursor=database.rawQuery("SELECT * FROM Usuarios WHERE nombre='"+nombre+"'");   //recibe la consulta
+        try{    
+            if (cursor.moveToNext())
+                return extraerUsuario(cursor);
+            else
+                return null;
+        }catch (Exception e){Log.d ("TAG","error elemento nombre UsuarioBD" + e.getMessage());
+            throw e;
+        }finally {
+            if (cursor !=null) cursor.close();
+        } 
+    }
+
+    @Override
+    public List<Usuario> lista(){
+       SQLiteDatabase database = getReadabaleDatabase();
+       String sql= "SELECT * FROM Usuario ORDER BY nombre ASC";
+       Cursor cursor=database.rawQuery(sql, null);
+       if ( cursor.moveToFirst()){
+        do{
+            usuarioslist.add(
+                new Usuario(cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getInt(4),
+                cursor.getInt(5),
+                cursor.getString(6),
+                cursor.getInt(7),
+                cursor.getInt(8),
+                cursor.getInt(9),
+                cursor.getInt(10)));
+        }while (cursor.moveToNext());
+       }
+       cursor.close();
+       return usuarioslist;
+    }
+
+    @Override
+    public void agregar(Usuario){ //no ponemosnro_dni porque siendo autoincremental, solo va agregando
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValue=new ContentValues();
+        values.put("nombre",usuario.getNombre());
+        values.put("apellido",usuario.getApellido());
+        values.put("direccion",usuario.getEmail());
+        values.put("telefono",usuario.getTelefono());
+        values.put("telefono_emergencia",usuario.getTelefono_emergencia());
+        values.put("email",usuario.getEmail());
+        values.put("area_laboral",usuario.getArea_laboral());
+        values.put("id_genero",usuario.getId_genero()));
+        values.put("id_rol",usuario.getId_rol());
+        values.put("id_doc",usuario.getId_doc());
+        database.insert("Usuario", null, values); //se agregan sin ninguna condicion
+
+    }
+
+    @Override
+    public void actualizar(int nro_dni, Usuario){
+        SQLiteDatabase db=this.getWritableDatabase();
+        String[]parametros={String.valueof(nro_dni)};
+        ContentValues contentValue=new ContentValues();
+        values.put("nombre",usuario.getNombre());
+        values.put("apellido",usuario.getApellido());
+        values.put("direccion",usuario.getEmail());
+        values.put("telefono",usuario.getTelefono());
+        values.put("telefono_emergencia",usuario.getTelefono_emergencia());
+        values.put("email",usuario.getEmail());
+        values.put("area_laboral",usuario.getArea_laboral());
+        values.put("id_genero",usuario.getId_genero()));
+        values.put("id_rol",usuario.getIdrol());
+        values.put("id_doc",usuario.getId_doc());
+        database.update("Usuario", values, "nro_dn=?", parametros); //ahi si se pudo una condicion, que sea igual a nro_dni
+        
+    }
+
+    @Override
+    public void borrar (int nro_dni, Usuario){
+        SQLiteDatabase db=this.getWritableDatabase();
+        String[]parametros={String.valueof(nro_dni)};
+
+        database.delete("Usuario","nro_dn=?", parametros);
+    }// aca terminan las operaciones con la base de datos

@@ -1,0 +1,112 @@
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class UsuariosSQLiteHelper extends SQLiteOpenHelper {{
+    //constructor con argumentos
+    public UsuariosSQLiteHelper (int id_doc, int nro_dni, String nombre, String apellido, String direccion, int telefono, int telefono_emergencia, String email, int area_laboral, int id_genero, int id_rol)
+        this.id_doc_dni=id_doc;
+        this.nro_dni=nro_dni;
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.direccion=direccion;
+        this.telefono=telefono;
+        this.telefono_emergencia=telefono_emergencia;
+        this.email=email;
+        this.area_laboral=area_laboral;
+        this.id_genero=id_genero;
+        this.id_rol=id_rol;
+    }    
+    public int getId_doc() {
+        return id_doc;}
+    public void setId_doc(int id_doc) {
+        this.id_doc = id_doc;}
+    public int getnro_dni() {
+        return nro_dni;}
+    public void setnro_dni(int nro_dni) {
+        this.nro_dni = nro_dni;}
+    public String getnombre() {
+        return nombre;}
+    public void setnombre(String nombre) {
+        this.nombre = nombre;}
+    public String getapellido() {
+        return apellido;}
+    public void setapellido(String apellido) {
+        this.apellido = apellido;}
+    public String getdireccion() { 
+        return direccion;}
+    public void setdireccion(String direccion) {
+        this.direccion = direccion;}
+    public int gettelefono() {
+        return telefono;}
+    public void settelefono(int telefono) {
+        this.telefono = telefono;}
+    public int gettelefono_emergencia() {
+        return telefono_emergencia;}
+    public void settelefono_emergencia(int telefono_emergencia) {
+        this.telefono_emergencia = telefono_emergencia;}
+    public String getemail() {
+        return email;}
+    public void setemail(String email) {
+        this.email = email;}
+    public int getarea_laboral() {
+        return area_laboral;}
+    public void setarea_laboral(int area_laboral) {
+        this.area_laboral = area_laboral;}
+    public int getid_genero() {
+        return id_genero;}
+    public void setid_genero(int id_genero) {
+        this.id_genero = id_genero;}
+    public int getid_rol() {
+        return id_rol;}
+    public void setid_rol(int id_rol) {
+        this.id_rol = id_rol;}
+    
+    @Override
+    public String toString(){
+        return "Usuario: {"+
+                "\ntipo_dni=" + tipo_dni+
+                ", nro_dni='" + nro_dni+ 
+                ", nombre='" + nombre+ '\''+
+                ", apellido='" + apellido+ '\''+
+                ", direccion='" + direccion+ '\''+
+                ", telefono=" + telefono+
+                ", telefono_emergencia=" + telefono_emergencia+
+                ", email='" + email+ '\''+
+                ", area_laboral=" + area_laboral+
+                ", id_genero=" + id_genero+
+                ", rol=" + rol+"}";
+
+}}
+                                
+
+
+
+
+
+    //public UsuariosSQLiteHelper(Context contexto, String nombre,
+    //CursorFactory factory, int version) {
+        //super(contexto, nombre, factory, version);
+    
+
+    //@Override
+    //public void onCreate(SQLiteDatabase db) {
+//Se ejecuta la sentencia SQL de creación de la tabla
+    //db.execSQL(sqlCreate);
+    }// usuario
+    //@Override
+    //public void onUpgrade(SQLiteDatabase db, int versionAnterior,
+    //int versionNueva) {
+//NOTA: Por simplicidad del ejemplo aquí utilizamos directamente
+// la opción de eliminar la tabla anterior y crearla de nuevo
+// vacía con el nuevo formato.
+// Sin embargo lo normal será que haya que migrar datos de la
+// tabla antigua a la nueva, por lo que este método debería
+// ser más elaborado.
+//Se elimina la versión anterior de la tabla
+    //db.execSQL("DROP TABLE IF EXISTS Usuarios");
+//Se crea la nueva versión de la tabla
+    //db.execSQL(sqlCreate);
+}
+}
