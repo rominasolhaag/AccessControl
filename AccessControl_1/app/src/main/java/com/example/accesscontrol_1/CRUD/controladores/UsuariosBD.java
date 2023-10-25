@@ -23,14 +23,14 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
     }
     @Override //primera version de la base de datos, se ejecuta una sola vez
     public void onCreate( SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE Usuarios (" +
+        String sql = "CREATE TABLE usuarios (" +
                 "nro_dni INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT," +
                 "apellido TEXT," +
                 "direccion TEXT," +
+                "email TEXT," +
                 "telefono INTERGER," +
                 "telefono_emergencia INTERGER," +
-                "email TEXT," +
                 "area_laboral INTERGER," +//FORENG KEY
                 "id_genero INTERGER," +
                 "id_rol INTERGER," +
@@ -40,8 +40,13 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
                 "FOREIGN KEY (id_rol) REFERENCES Rol(id_rol)," +
                 "FOREIGN KEY (tipo_dni) REFERENCES Tipo_doc(id_doc))";
         sqLiteDatabase.execSQL( sql );
-        //String insert="INSERT INTO Usuario VALUES (null, + y demas datos que debamos cargar)"
-        // sqLiteDatabase.execSQL(insert);
+        String insert= "INSERT INTO usuarios VALUES (null, " +
+                "'Jose'," +
+                "'Perez'," +
+                "'Corrientes 1500',"+
+                "'joseperez@gmail.com', 151234567 , 159876543)";
+
+        sqLiteDatabase.execSQL(insert);
     }//para cada tabla que tengamos, hacemos esto
 
     @Override
@@ -50,7 +55,7 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
     @Override //traiga un elemento desde el id, consultar
     public Usuarios elemento(int nro_dni){
         SQLiteDatabase database= getReadableDatabase();
-        Cursor cursor=database.rawQuery("SELECT * FROM Usuarios WHERE nro_dni='"+nro_dni+"", null);  //recibe la consulta
+        Cursor cursor=database.rawQuery("SELECT * FROM usuarios WHERE nro_dni='"+nro_dni+"", null);  //recibe la consulta
         try{
             if (cursor.moveToNext())
                 return extraerUsuario(cursor);
@@ -69,9 +74,9 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
         usuarios.setNombre(cursor.getString(1));
         usuarios.setApellido(cursor.getString(2));
         usuarios.setDireccion(cursor.getString(3));
-        usuarios.setTelefono(cursor.getInt(4));
-        usuarios.setTelefono_emergencia(cursor.getInt(5));
-        usuarios.setEmail(cursor.getString(6));
+        usuarios.setEmail(cursor.getString(4));
+        usuarios.setTelefono(cursor.getInt(5));
+        usuarios.setTelefono_emergencia(cursor.getInt(6));
         usuarios.setArea_laboral(cursor.getInt(7));
         usuarios.setId_genero(cursor.getInt(8));
         usuarios.setId_rol(cursor.getInt(9));
@@ -129,9 +134,9 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
         values.put("nombre",usuarios.getNombre());
         values.put("apellido",usuarios.getApellido());
         values.put("direccion",usuarios.getEmail());
+        values.put("email",usuarios.getEmail());
         values.put("telefono",usuarios.getTelefono());
         values.put("telefono_emergencia",usuarios.getTelefono_emergencia());
-        values.put("email",usuarios.getEmail());
         values.put("area_laboral",usuarios.getArea_laboral());
         values.put("id_genero",usuarios.getId_genero());
         values.put("id_rol",usuarios.getId_rol());
@@ -148,9 +153,9 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
         values.put("nombre",usuarios.getNombre());
         values.put("apellido",usuarios.getApellido());
         values.put("direccion",usuarios.getEmail());
+        values.put("email",usuarios.getEmail());
         values.put("telefono",usuarios.getTelefono());
         values.put("telefono_emergencia",usuarios.getTelefono_emergencia());
-        values.put("email",usuarios.getEmail());
         values.put("area_laboral",usuarios.getArea_laboral());
         values.put("id_genero",usuarios.getId_genero());
         values.put("id_rol",usuarios.getId_rol());

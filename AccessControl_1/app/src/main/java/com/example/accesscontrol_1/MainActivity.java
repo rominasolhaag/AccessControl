@@ -2,6 +2,8 @@ package com.example.accesscontrol_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,28 +15,46 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Context context;
-    Button btnListar, btnregistrar, btnBuscar;
+    Button btnListar, btnRegistrar, btnBuscar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        Button btnRegistrar = findViewById(R.id.btnregistrar);
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Acciones a realizar cuando se hace clic en el botón "btnregistrar"
-            }
-        });
 
     }
     private void init(){
         context= getApplicationContext();
-        btnregistrar= findViewById(R.id.btnregistrar);
-        btnBuscar= findViewById(R.id.btnbuscar);
-        btnListar= findViewById(R.id.btnlistar);
-    }
+        btnRegistrar= findViewById(R.id.btnRegistrar);
+        btnBuscar= findViewById(R.id.btnBuscar);
+        btnListar= findViewById(R.id.btnListar);
+        btnRegistrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Acciones a realizar cuando se hace clic en el botón "Registrar"
+                Intent i = new Intent(context, GestionarUsuarioActivity2.class); // Reemplaza con la actividad a la que deseas ir
+                startActivity(i);
+            }
+        });
 
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Acciones a realizar cuando se hace clic en el botón "Buscar"
+                Intent i = new Intent(context, BuscarUsuarioActivity.class); // Reemplaza con la actividad a la que deseas ir
+                startActivity(i);
+            }
+        });
+
+        btnListar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Acciones a realizar cuando se hace clic en el botón "Listar"
+                Intent i = new Intent(context, ListadoUsuariosActivity2.class); // Reemplaza con la actividad a la que deseas ir
+                startActivity(i);
+            }
+        });
+    }
 
 
     @Override
@@ -42,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 }
+
+
+
 
 
 
