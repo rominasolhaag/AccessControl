@@ -32,14 +32,14 @@ public class BuscarUsuarioActivity extends AppCompatActivity implements View.OnC
     private void init(){
         context= getApplicationContext();
         txtnombre=findViewById(R.id.bus_txtnombre);
-        btnBuscar=findViewById(R.id.bus_btnbuscar);
+        btnBuscar=findViewById(R.id.bus_btnBuscar);
 
     }
 
     @Override
     public void onClick(View view) {
     // cuando se hace click en el botton
-        if(view.getId()== R.id.bus_btnbuscar){
+        if(view.getId()== R.id.bus_btnBuscar){
             String nombre=txtnombre.getText().toString();
             Usuarios usuarios= buscarusuarios(nombre);
             //que si trae un nombre lo muestre
@@ -74,6 +74,6 @@ public class BuscarUsuarioActivity extends AppCompatActivity implements View.OnC
         usuariosBD=new UsuariosBD( context, "UsuariosBD.bd", null, 1);
         Usuarios usuarios=usuariosBD.elemento(nombre);
 
-        return usuarios;
+        return usuariosBD.elemento(nombre);
     }
 }

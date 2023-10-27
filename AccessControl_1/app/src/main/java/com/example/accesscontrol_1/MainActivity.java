@@ -36,32 +36,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
             }
         });
-
         btnBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Acciones a realizar cuando se hace clic en el botón "Buscar"
-                Intent i = new Intent(context, BuscarUsuarioActivity.class); // Reemplaza con la actividad a la que deseas ir
-                startActivity(i);
-            }
-        });
+                @Override
+                public void onClick(View view) {
+                    // Acciones a realizar cuando se hace clic en el botón "Buscar"
+                    Intent i = new Intent(context, BuscarUsuarioActivity.class); // Reemplaza con la actividad a la que deseas ir
+                    startActivity(i);
+                }
+            });
 
         btnListar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Acciones a realizar cuando se hace clic en el botón "Listar"
-                Intent i = new Intent(context, ListadoUsuariosActivity2.class); // Reemplaza con la actividad a la que deseas ir
+                @Override
+                public void onClick(View view) {
+                    // Acciones a realizar cuando se hace clic en el botón "Listar"
+                    Intent i = new Intent(context, ListadoUsuariosActivity2.class); // Reemplaza con la actividad a la que deseas ir
+                    startActivity(i);
+                }
+            });
+
+    }
+
+
+        @Override
+        public void onClick(View view) {
+            int viewId = view.getId();
+
+            if (viewId == R.id.btnRegistrar) {
+                Toast.makeText(context, "Registrar", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(context, GestionarUsuarioActivity2.class);
+                Bundle bolsa= new Bundle();
+                bolsa.putInt("Nro_dni",0);
+                i.putExtras(bolsa);
                 startActivity(i);
+            } else if (viewId == R.id.btnListar) {
+                Toast.makeText(context, "Listar", Toast.LENGTH_LONG).show();
+                Intent i2 = new Intent(context, ListadoUsuariosActivity2.class);
+                startActivity(i2);
+            } else if (viewId == R.id.btnBuscar) {
+                Toast.makeText(context, "Buscar", Toast.LENGTH_LONG).show();
+                Intent i3 = new Intent(context, BuscarUsuarioActivity.class);
+                startActivity(i3);
             }
-        });
-    }
+        }
 
-
-    @Override
-    public void onClick(View view) {
-
-    }
 }
+
+
 
 
 

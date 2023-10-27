@@ -31,7 +31,8 @@ public class UsuariosBD extends SQLiteOpenHelper implements IUsuariosBD {
                 "email TEXT," +
                 "telefono INTERGER," +
                 "telefono_emergencia INTERGER," +
-                "area_laboral INTERGER," +//FORENG KEY
+                //FORENG KEY
+                "area_laboral INTERGER," +
                 "id_genero INTERGER," +
                 "id_rol INTERGER," +
                 "id_doc INTERGER," +
