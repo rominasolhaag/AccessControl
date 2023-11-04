@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TextView con fondo redondeado -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_background"
+        android:text="@string/name"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+    <!-- Layout horizontal con dos elementos -->
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp">
+
+        <!-- Vista personalizada (a la izquierda) con borde y radio -->
+        <TextView
+            android:id="@+id/customView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_background"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Botón "Fecha Ingreso" (a la derecha) -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:id="@+id/buttonFechaIngreso"
+            android:background="@drawable/custom_button_background"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:layout_marginEnd="16dp"/>
+    </LinearLayout>
+
+
+    <!-- Layout horizontal con dos elementos -->
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_below="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+    <!-- Vista personalizada (a la izquierda) con borde y radio -->
+        <TextView
+            android:id="@+id/customView2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_background"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Botón "Fecha Ingreso" (a la derecha) -->
+        <Button
+            android:id="@+id/buttonLicencia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button_background"
+            android:text="@string/license"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/layout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="54dp">
+
+            <!-- Elemento izquierdo (texto "Notificaciones") -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/notif"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp" />
+
+            <!-- Elemento derecho (texto dinámico "Si" o "No") -->
+            <TextView
+                android:id="@+id/switchTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginEnd="24dp" />
+        </LinearLayout>
+
+        <!-- Box de arriba -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="32dp">
+            <!-- Texto a la izquierda -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/present"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+            <!-- Switch a la derecha -->
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+        </LinearLayout>
+
+        <!-- Box del medio -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <!-- Texto a la izquierda -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/delay"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+            <!-- Switch a la derecha -->
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <!-- Box de abajo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <!-- Texto a la izquierda -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/justified"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+            <!-- Switch a la derecha -->
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón debajo de los tres conjuntos -->
+    <Button
+        android:layout_below="@+id/layout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:id="@+id/textButton"
+        android:background="@drawable/custom_button_background"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <!-- Elemento 1 -->
+        <ImageView
+            android:id="@+id/navhome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon1"
+            android:contentDescription="@string/nav_home" />
+
+        <!-- Elemento 2 -->
+        <ImageView
+            android:id="@+id/navqr"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon2"
+            android:contentDescription="@string/nav_qr" />
+
+        <!-- Elemento 3 -->
+        <ImageView
+            android:id="@+id/navprofile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon3"
+            android:contentDescription="@string/nav_profile" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
