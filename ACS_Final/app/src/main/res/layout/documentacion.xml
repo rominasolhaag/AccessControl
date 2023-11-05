@@ -16,7 +16,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#000000"
-    />
+        />
 
     <!-- TextView en la parte superior -->
     <TextView
@@ -183,6 +183,5 @@
             android:contentDescription="@string/nav_profile" />
     </LinearLayout>
 </RelativeLayout>
-
 
 
