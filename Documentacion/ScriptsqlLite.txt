@@ -1,0 +1,102 @@
+-- Crear una base de datos en SQLite (no es necesario usar 'use' en SQLite)
+CREATE TABLE ROL (
+    id_rol INTEGER PRIMARY KEY,
+    descripcion TEXT NOT NULL
+);
+
+CREATE TABLE AREA (
+    id_area INTEGER PRIMARY KEY,
+    area TEXT NOT NULL
+);
+
+CREATE TABLE GENERO (
+    id_genero INTEGER PRIMARY KEY,
+    genero TEXT
+);
+
+CREATE TABLE TIPO_DNI (
+    id_tipo_dni INTEGER PRIMARY KEY,
+    tipo_dni TEXT NOT NULL
+);
+
+CREATE TABLE TIPO_RETRASO (
+    id_tipo_retraso INTEGER NOT NULL PRIMARY KEY,
+    detalle TEXT
+);
+
+CREATE TABLE TIPO_LICENCIAS (
+    id_licencias INTEGER NOT NULL PRIMARY KEY,
+    descripcion TEXT
+);
+
+CREATE TABLE HORARIOS (
+    id_horarios INTEGER NOT NULL PRIMARY KEY,
+    turno TEXT
+);
+
+CREATE TABLE PRESENTISMO (
+    id_presentismo INTEGER NOT NULL PRIMARY KEY,
+    asistencia TEXT,
+    horario_ingreso DATETIME NOT NULL,
+    horario_egreso DATETIME NOT NULL
+);
+
+CREATE TABLE USUARIOS (
+    tipo_dni INTEGER,
+    nro_dni INTEGER PRIMARY KEY,
+    nombre TEXT,
+    apellido TEXT,
+    direccion TEXT,
+    telefono INTEGER NOT NULL,
+    telefono_emergencia INTEGER,
+    email TEXT,
+    area_laboral INTEGER,
+    genero INTEGER,
+    rol_usuario INTEGER,
+    FOREIGN KEY (area_laboral) REFERENCES AREA (id_area),
+    FOREIGN KEY (tipo_dni) REFERENCES TIPO_DNI (id_tipo_dni),
+    FOREIGN KEY (genero) REFERENCES GENERO (id_genero),
+    FOREIGN KEY (rol_usuario) REFERENCES ROL (id_rol)
+);
+
+CREATE TABLE USUARIOS_LICENCIAS (
+    id_licencias INTEGER NOT NULL PRIMARY KEY,
+    tipo_licencia INTEGER,
+    desde DATE NOT NULL,
+    hasta DATE NOT NULL,
+    autorizado TEXT,
+    usuario INTEGER,
+    FOREIGN KEY (usuario) REFERENCES USUARIOS (nro_dni),
+    FOREIGN KEY (tipo_licencia) REFERENCES TIPO_LICENCIAS (id_licencias)
+);
+
+CREATE TABLE HORARIO_ASIGNADO (
+    id_horario INTEGER NOT NULL PRIMARY KEY,
+    usuario INTEGER,
+    id_presentismo INTEGER,
+    horario INTEGER,
+    FOREIGN KEY (usuario) REFERENCES USUARIOS (nro_dni),
+    FOREIGN KEY (horario) REFERENCES HORARIOS (id_horarios),
+    FOREIGN KEY (id_presentismo) REFERENCES PRESENTISMO (id_presentismo)
+);
+
+CREATE TABLE HORAS_EXTRAS (
+    id_extras INTEGER NOT NULL PRIMARY KEY,
+    usuario INTEGER,
+    fecha DATE NOT NULL,
+    hora_inicio DATETIME NOT NULL,
+    hora_cierre DATETIME NOT NULL,
+    descripcion TEXT,
+    FOREIGN KEY (usuario) REFERENCES USUARIOS (nro_dni)
+);
+
+CREATE TABLE RETRASO (
+    id_retraso INTEGER NOT NULL PRIMARY KEY,
+    usuario INTEGER,
+    tipo_retraso INTEGER,
+    minutos INTEGER,
+    observaciones TEXT,
+    fecha DATE NOT NULL,
+    FOREIGN KEY (usuario) REFERENCES USUARIOS (nro_dni),
+    FOREIGN KEY (tipo_retraso) REFERENCES TIPO_RETRASO (id_tipo_retraso)
+);
