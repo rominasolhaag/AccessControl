@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Licencias"
+        android:layout_centerHorizontal="true"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/motivo_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:prompt="Seleccione el motivo de la solicitud"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirmar selección"
+            android:backgroundTint="@color/black"
+            />
+        <TextView
+            android:id="@+id/selected_range_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="352dp"
+        android:orientation="horizontal">
+        <com.squareup.timessquare.CalendarPickerView
+            android:id="@+id/calendar_view"
+            app:tsquare_dateTextColor="@color/calendarDateText"
+            app:tsquare_dayOfWeekLabel="@array/calendar_day_labels"
+            app:tsquare_dayOfWeekTextColor="@color/calendarDayOfWeekText"
+            app:tsquare_dialogBackground="@color/calendarBackground"
+            app:tsquare_firstDayOfWeek="2"
+            app:tsquare_selectionColor="@color/colorAccent"
+            app:tsquare_showPrevNext="false"
+            app:tsquare_dateSelectionType="range"
+        android:layout_width="match_parent"
+        android:layout_height="439dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <!-- Elemento 1 -->
+            <ImageView
+                android:id="@+id/navhome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/icon1"
+                android:contentDescription="@string/nav_home" />
+
+            <!-- Elemento 2 -->
+            <ImageView
+                android:id="@+id/navqr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/icon2"
+                android:contentDescription="@string/nav_qr" />
+
+            <!-- Elemento 3 -->
+            <ImageView
+                android:id="@+id/navprofile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/icon3"
+                android:contentDescription="@string/nav_profile" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

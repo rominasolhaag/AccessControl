@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ACS_Final</string>
+    <string name="app_name">AccessControl</string>
 
     <string name="app_title">Access Control</string>
     <string name="registro_qr">Escanee el QR para registrar su ingreso</string>

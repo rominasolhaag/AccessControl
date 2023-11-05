@@ -63,7 +63,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 
-    <!-- Vista personalizada (a la izquierda) con borde y radio -->
+        <!-- Vista personalizada (a la izquierda) con borde y radio -->
         <TextView
             android:id="@+id/customView2"
             android:layout_width="0dp"
@@ -138,8 +138,8 @@
                 android:layout_marginStart="12dp"/>
             <!-- Switch a la derecha -->
             <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="8dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -162,8 +162,8 @@
                 android:layout_marginStart="12dp"/>
             <!-- Switch a la derecha -->
             <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="8dp"
                 android:clickable="true"
                 android:focusable="true"/>
@@ -185,8 +185,8 @@
                 android:layout_marginStart="12dp"/>
             <!-- Switch a la derecha -->
             <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="8dp"
                 android:clickable="true"
                 android:focusable="true"/>
@@ -242,7 +242,6 @@
     </LinearLayout>
 
 </RelativeLayout>
-
 
 
 
