@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">AccessControl_1</string>
+    <string name="app_name">ACS_Final</string>
+
+    <string name="app_title">Access Control</string>
+    <string name="registro_qr">Escanee el QR para registrar su ingreso</string>
+    <string name="desc_image">Escaner QR</string>
+    <string name="button_qr">Escanear</string>
+
+    <string name="img_perfil">Imagen de perfil</string>
+    <string name="perfil">Perfil del Empleado</string>
+    <string name="desc_email">Correo electrónico</string>
+    <string name="email">employee@company.com</string>
+    <string name="edit">Editar Perfil</string>
+    <string name="notif">Notificaciones</string>
+    <string name="switch_notif">Habilitar las notificaciones</string>
+    <string name="exit">Salir</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_qr">Registro</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+
+    <string name="name">Daiana Zabala</string>
+    <string name="date">Fecha Ingreso</string>
+    <string name="license">Licencia</string>
+    <string name="opt">No/Si</string>
+    <string name="present">Presente</string>
+    <string name="delay">Tardanza</string>
+    <string name="justified">Justificado</string>
+    <string name="back">Anterior</string>
+
+    <string name="docu">Documentación respaldatoria de ausentismo</string>
+    <string name="noti1">Aviso de ausentismo</string>
+    <string name="upload">Subir documentación que respalde ausentismo</string>
+    <string name="upload2">Adjuntar archivos</string>
+    <string name="noti2">Aviso de tardanza</string>
+    <string name="reason">Ingrese el motivo de la tardanza</string>
+    <string name="send">Enviar</string>
 </resources>

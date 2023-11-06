@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TextView con fondo redondeado -->
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:text="Daiana Zabala"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+    <!-- Layout horizontal con dos elementos -->
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_below="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Vista personalizada (a la izquierda) con borde y radio -->
+        <View
+            android:id="@+id/customView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_background" />
+
+        <!-- Botón "Fecha Ingreso" (a la derecha) -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Fecha Ingreso"
+            android:id="@+id/buttonFechaIngreso" />
+    </LinearLayout>
+
+    <!-- Layout horizontal con dos elementos -->
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_below="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <!-- Vista personalizada (a la izquierda) con borde y radio -->
+        <View
+            android:id="@+id/customView2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_background" />
+
+        <!-- Botón "Fecha Ingreso" (a la derecha) -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Licencia"
+            android:id="@+id/buttonLicencia" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/layout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <!-- Elemento izquierdo (texto "Notificaciones") -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Notificaciones"
+                android:gravity="start"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+
+            <!-- Elemento derecho (texto dinámico "Si" o "No") -->
+            <TextView
+                android:id="@+id/switchTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Si/No"
+                android:textSize="16sp"
+                android:layout_marginEnd="38dp" />
+        </LinearLayout>
+
+        <!-- Box de arriba -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Texto a la izquierda -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Texto Arriba Izquierda" />
+            <!-- Switch a la derecha -->
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Box del medio -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Texto a la izquierda -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Texto Medio Izquierda" />
+            <!-- Switch a la derecha -->
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Box de abajo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Texto a la izquierda -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Texto Abajo Izquierda" />
+            <!-- Switch a la derecha -->
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón debajo de los tres conjuntos -->
+    <Button
+        android:layout_below="@+id/layout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Botón"
+        android:id="@+id/textButton" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <!-- Elemento 1 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon1"
+            android:contentDescription="Elemento 1" />
+
+        <!-- Elemento 2 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon2"
+            android:contentDescription="Elemento 2" />
+
+        <!-- Elemento 3 -->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon3"
+            android:contentDescription="Elemento 3" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+

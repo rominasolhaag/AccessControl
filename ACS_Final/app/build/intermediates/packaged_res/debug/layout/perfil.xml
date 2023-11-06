@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circularImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/img_perfil"
+        android:src="@drawable/perfil"
+        app:civ_border_color="#000000"
+        app:civ_border_width="2dp"/>
+
+    <TextView
+        android:id="@+id/perfilText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circularImage"
+        android:layout_centerHorizontal="true"
+        android:text="@string/perfil"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/perfilText"
+        android:layout_centerHorizontal="true"
+        android:text="@string/email"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:autoLink="email"
+        android:contentDescription="@string/desc_email" />
+
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_below="@+id/emailText"
+        android:layout_centerHorizontal="true"
+        android:text="@string/edit"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button_background"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/profileButton"
+        android:layout_marginTop="36dp">
+
+        <!-- Elemento izquierdo (texto "Notificaciones") -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/notif"
+            android:gravity="start"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <!-- Elemento derecho (texto dinámico "Si" o "No") -->
+        <TextView
+            android:id="@+id/switchTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="16sp"
+            android:layout_marginEnd="38dp"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/profileButton"
+        android:layout_marginTop="86dp"
+        android:background="@drawable/rounded_background">
+
+        <!-- Elemento izquierdo (contenido del segundo "box") -->
+        <TextView
+            android:id="@+id/switchTextView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:text="@string/switch_notif"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <!-- Elemento derecho (Switch) -->
+        <Switch
+            android:id="@+id/mySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:theme="@style/BlackSwitchStyle"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/exit"
+        android:layout_marginTop="200dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/custom_button_background"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <!-- Elemento 1 -->
+        <ImageView
+            android:id="@+id/navhome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon1"
+            android:contentDescription="@string/nav_home" />
+
+        <!-- Elemento 2 -->
+        <ImageView
+            android:id="@+id/navqr"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon2"
+            android:contentDescription="@string/nav_qr" />
+
+        <!-- Elemento 3 -->
+        <ImageView
+            android:id="@+id/navprofile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/icon3"
+            android:contentDescription="@string/nav_profile" />
+    </LinearLayout>
+</RelativeLayout>
+
