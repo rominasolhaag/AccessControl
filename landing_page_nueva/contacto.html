@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Access Control Secure</title>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/ico/ico.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
+</head>
+
+<body class="contact">
+    <header style="text-align: center; margin-bottom: 20px; margin-top: 20px;">
+        <div class="container-fluid">
+            <a href="" class="navbar-header">
+                <img src="imagenes/logo_blanco_contacto.png" alt="logo_ACS" class="logo"
+                    style="margin: 0 auto; display: block; width: 200px;">
+            </a>
+        </div>
+    </header>
+
+    <!-- Inicio del Formulario de contacto con el cliente -->
+    <section id="contact" class="mb-5" style="margin-top: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-8 mx-auto">
+                    <div class="card_register">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <form class="box" action="validar.php" method="post">
+                                    <p><span>Por favor, completa con tus datos a continuación para contactarnos con
+                                            vos.</span></p>
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="nombre">Nombre Completo</label>
+                                        <input type="text" id="nombre" name="nombre" class="form-control"
+                                            placeholder="Escribe tu nombre y apellido" required>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="puesto">Puesto en la Empresa</label>
+                                        <input type="text" id="puesto" name="puesto" class="form-control"
+                                            placeholder="Escribe tu puesto en la empresa" required>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="email">Correo Electrónico</label>
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            placeholder="Ejemplo: nombre@correo.com" required>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="telefono">Número de Teléfono</label>
+                                        <input type="tel" id="telefono" name="telefono" class="form-control"
+                                            placeholder="Ejemplo: (351) 5734567" required pattern="^\(\d{3}\) \d{7}$">
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label class="color-title pt-2 pb-2">Selecciona el plan que te interesa</label>
+                                        <select id="plan" name="plan" class="form-control" style="font-size: 16px;"
+                                            required>
+                                            <option value="pequeño">Plan Empresarial Pequeño</option>
+                                            <option value="mediano">Plan Empresarial Mediano</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="empresa">Nombre de la Empresa</label>
+                                        <input type="text" id="empresa" name="empresa" class="form-control"
+                                            placeholder="Escribe el nombre de tu empresa" required>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label class="color-title pt-2 pb-2">Acerca de su Empresa</label>
+                                        <small>Escribe caracteristicas de tu empresa que considere debemos
+                                            conocer</small>
+                                        <textarea id="mensaje" name="mensaje" class="form-control"
+                                            style="font-size: 16px;" rows="6" placeholder="Escriba aqui su mensaje"
+                                            required></textarea>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="ciudad">Ciudad</label>
+                                        <input type="text" id="ciudad" name="ciudad" class="form-control"
+                                            placeholder="Escribe tu ciudad" required>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <label for="pais">País</label>
+                                        <input type="text" id="pais" name="pais" class="form-control"
+                                            placeholder="Escribe tu país" required>
+                                    </div>
+
+                                    <div class="form-group pt-2 pb-1">
+                                        <button type="submit"
+                                            class="btn btn-lg w-100 btn-registrar btn-block button">Enviar</button>
+                                   </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<!-- fin de formulario de contacto con el cliente -->
+
+
+
+<!-- Inicio Footer -->
+<footer class="Footer-Customer-Data">
+
+    <p> ©Copyright Access Control Secure 2023</p>
+
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
